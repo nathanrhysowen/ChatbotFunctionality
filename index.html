@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbot Interface</title>
+    <!-- Bootstrap CSS for styling and responsiveness -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        /* Basic styles for the chat interface, using a dark theme */
+        body { font-family: Arial, sans-serif; background-color: #121212; color: #fff; }
+        .chat-container { width: 400px; height: 700px; margin: 70px auto; border: 1px solid #ccc; padding: 10px; background-color: #333; border-radius: 10px; }
+        .message-container { height: 600px; overflow-y: scroll; border-radius: 10px; }
+        .input-container { margin-top: 40px; }
+        .input-group-text, .form-control { background-color: #555; color: #fff; border-color: #4D4699; }
+        .btn-primary { background-color: #4D4699; border-color: #4D4699; }
+        .btn-primary:hover { background-color: #E76F51; border-color: #E76F51; }
+        /* Styles for chatbot messages (purple) */
+        .alert-primary { background-color: #4D4699; border-color: #4D4699; color: #fff; }
+        /* Styles for sender's messages (grey) */
+        .alert-secondary { background-color: #555; border-color: #555; color: #fff; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="chat-container">
+            <div class="message-container">
+                <!-- Placeholder for bot's welcome message -->
+            </div>
+            <div class="input-group input-container">
+                <input type="text" class="form-control" id="message-input" placeholder="Type a message..." />
+                <div class="input-group-append">
+                    <button class="btn btn-primary" type="button" onclick="sendMessage()">Send</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Function to display bot's welcome message on window load
+        window.onload = function() {
+            const messageContainer = document.querySelector('.message-container');
+            messageContainer.innerHTML += `<div class="alert alert-primary" role="alert">Clara: My name is Clara and I'm here to assist you with managing your online screen time and answer any questions you may have regarding your mental health as a result of your screen time</div>`;
+        };
+
+        // Function to handle sending and displaying messages
+        function sendMessage() {
+            const input = document.getElementById('message-input');
+            const messageContainer = document.querySelector('.message-container');
+            const message = input.value;
+            input.value = '';  // Clear input field after sending
+
+            // Display user message in chat window
+            messageContainer.innerHTML += `<div class="alert alert-secondary" role="alert">User: ${message}</div>`;
+
+            // Send message to server and handle response
+            fetch('/chat', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ message: message })
+            })
+            .then(response => response.json())
+            .then(data => {
+                // Display bot response
+                messageContainer.innerHTML += `<div class="alert alert-primary" role="alert">Clara:  ${data.answer}</div>`;
+            })
+            .catch(error => console.error('Error:', error));
+        }
+    </script>
+</body>
+</html>
