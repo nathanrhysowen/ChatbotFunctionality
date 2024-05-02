@@ -1,0 +1,15 @@
+How to run:
+
+1. Insert the "index.html" and "app.py" files into a folder labelled "Chatbot" 
+
+2. Ensure you have the Python Extension from Micrososoft installed in VScode
+
+3. in the the VScode terminal type "pip install openai==0.28.0" 
+
+4. in the VScode terminal type "pip install flask" 
+
+5. In the VScode terminal type "python app.py" and click on the link produced in the terminal to open the webpage containing the chatbot 
+
+
+Note:
+My OpenAI API link contains £6 worth of credit for producing responses. this should be more than enough for testing. 
