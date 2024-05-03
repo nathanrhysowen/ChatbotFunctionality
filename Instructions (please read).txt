@@ -8,8 +8,10 @@ How to run:
 
 4. in the VScode terminal type "pip install flask" 
 
+5. insert API key: sk-proj-CWMoFPKzyu1Kf2ikfSyzT3BlbkFJObmQ62YRlnkqBAmx8SWI
+
 5. In the VScode terminal type "python app.py" and click on the link produced in the terminal to open the webpage containing the chatbot 
 
 
 Note:
-My OpenAI API link contains £6 worth of credit for producing responses. this should be more than enough for testing. 
+My OpenAI API contains £6 worth of credit for producing responses. this should be more than enough for testing. 
