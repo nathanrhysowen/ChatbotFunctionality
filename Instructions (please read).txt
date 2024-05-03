@@ -8,7 +8,7 @@ How to run:
 
 4. in the VScode terminal type "pip install flask" 
 
-5. insert API key: sk-proj-CWMoFPKzyu1Kf2ikfSyzT3BlbkFJObmQ62YRlnkqBAmx8SWI
+5. insert API key in the app.py script (API key will be located in the hand in folder). 
 
 5. In the VScode terminal type "python app.py" and click on the link produced in the terminal to open the webpage containing the chatbot 
 
